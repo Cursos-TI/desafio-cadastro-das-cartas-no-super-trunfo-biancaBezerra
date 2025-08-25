@@ -4,7 +4,7 @@ int main() {
 
     char codigo_carta1[10], estado1[10], cidade1[50], codigo_carta2[10], estado2[10], cidade2[50];
     unsigned long int populacao1, populacao2;
-    int area1,pontos_turisticos1, area2, pontos_turisticos2;
+    int area1,pontos_turisticos1, area2, pontos_turisticos2, escolhaAtributo;
     float pib1, dens_populacional1, pib_per_capta1, superPoder1, pib2, dens_populacional2, pib_per_capta2, superPoder2;
 
 
@@ -118,6 +118,57 @@ int main() {
 
     printf("\nCARTA 1: %s - (%s): %.2f \n", cidade1, estado1, superPoder1);
     printf("CARTA 2: %s - (%s): %.2f \n", cidade2, estado2, superPoder2);
+
+    printf("\n******* ESCOLHA QUAL ATRIBUTO QUER COMPARAR ENTRE AS CARTAS *******\n"
+        "\n1. População 👨‍👩‍👧‍👦\n"
+        "2. Area 🗺️\n"
+        "3. PIB💲\n"
+        "4. Pontos Turisticos ⛰️\n"
+        "5. Densidade Populacional 🏢\n"
+        "\nEscolha uma opção: ");
+
+        scanf("%d", &escolhaAtributo);
+
+    switch (escolhaAtributo)
+    {
+    case 1:
+        printf("\nAtributo Escolhido - População\n");
+        break;
+    case 2:
+        printf("\nAtributo Escolhido - Área\n");
+        break;
+    case 3:
+        printf("\nAtributo Escolhido - PIB\n");
+        break;
+    case 4:
+        printf("\nAtributo Escolhido - Pontos Turisticos\n");
+        break;
+    case 5:
+        printf("\nAtributo Escolhido - Densidade Populacional\n");
+        break;
+    default:
+        printf("\nOpção Inválida!\n");
+        break;
+    }
+
+    if ((populacao1 > populacao2) || (area1 > area2) || (pib1 > pib2) || (pontos_turisticos1 > pontos_turisticos2) ||(dens_populacional1 < dens_populacional2)) {
+        printf("\n ***** CARTA 1 VENCEU *****\n ");
+        printf("1 . Cidade: CARTA 1 %s - CARTA 2 %s\n", cidade1, cidade2);
+        printf("2 . População: CARTA 1 %ld - CARTA 2 %ld\n", populacao1, populacao2);
+        printf("3 . Area: CARTA 1 %d - CARTA 2 %d\n", area1, area2);
+        printf("4 . PIB: CARTA 1 %f - CARTA 2 %f\n", pib1, pib2);
+        printf("5 . Pontos Turisticos: CARTA 1 %d - CARTA 2 %d\n", pontos_turisticos1, pontos_turisticos2);
+    } else if ((populacao2 > populacao1) || (area2 > area1) || (pib2 > pib1) || (pontos_turisticos2 > pontos_turisticos1) ||(dens_populacional2 < dens_populacional1)) {
+            printf("\n ***** CARTA 2 VENCEU *****\n ");
+            printf("1 . Cidade: CARTA 1 %s - CARTA 2 %s\n", cidade1, cidade2);
+            printf("2 . População: CARTA 1 %ld - CARTA 2 %ld\n", populacao1, populacao2);
+            printf("3 . Area: CARTA 1 %d - CARTA 2 %d\n", area1, area2);
+            printf("4 . PIB: CARTA 1 %f - CARTA 2 %f\n", pib1, pib2);
+            printf("5 . Pontos Turisticos: CARTA 1 %d - CARTA 2 %d\n", pontos_turisticos1, pontos_turisticos2);
+
+        } else{
+        printf("\n*** Deu empate ***\n");
+    }
 
     return 0;
 }
